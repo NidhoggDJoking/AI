@@ -1,5 +1,6 @@
 <?php
 /**
+ * 通过上传到服务器的图片路径进行图片识别
  * 发起http post请求(REST API), 并获取REST请求的结果
  * @param string $url
  * @param string $param
