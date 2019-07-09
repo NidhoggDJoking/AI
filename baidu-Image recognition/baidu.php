@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * 无需将图片上传到服务器,将本地的图片base64编码压缩后
  * 发起http post请求(REST API), 并获取REST请求的结果
  * @param string $url
  * @param string $param
