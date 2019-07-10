@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>银行卡4要素验证</title>
+</head>
+
+<body>
+    <label>名字</label><input type="text" name="" id="name"><br />
+    <label>银行卡</label><input type="text" name="" id="bankcard"><br />
+    <label>手机号</label><input type="text" name="" id="phone"><br />
+    <label>身份证号码</label><input type="text" name="" id="idcard">
+    <button onclick="apitest()">开始</button>
+    <p id="posdsd"></p>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+function apitest() {
+    var name = $('#name').val();
+    var bankcard = $('#bankcard').val();
+    var phone = $('#phone').val();
+    var idcard = $('#idcard').val();
+    var params = '{"Name":"' + name + '","BankCard":"' + bankcard + '","Phone":"' + phone + '","IdCard":"' + idcard + '"}'
+    console.log(params);
+
+    $.ajax({
+        url: 'http://www.hukang.com/BankCardVerification.php',
+
+        type: 'POST',
+
+        data: {
+            // name:name,
+            // bankcard:bankcard,
+            // phone:phone,
+            // idcard:idcard
+            params: params
+
+        },
+        dataType: 'json',
+        success: function(data) {
+            console.log(data.Description);
+            $('#posdsd').text(data.Description);
+        }
+    })
+}
+</script>
+
+</html>
