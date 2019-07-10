@@ -18,8 +18,7 @@ try {
     // $phone = $_POST['phone'];
     // $idcard = $_POST['idcard'];
 
-
-    $cred = new Credential("AKIDvcXXRH0RgU3MTIpEKA4j8LOCl48AeUpy", "4yc2NTJrEPM7d7MM8j5C3eDWaR7YkhP6");
+    $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("faceid.tencentcloudapi.com");
       
@@ -28,8 +27,6 @@ try {
     $client = new FaceidClient($cred, "ap-guangzhou", $clientProfile);
 
     $req = new BankCard4EVerificationRequest();
-    
-    // $params = '{"Name":"张三","BankCard":"6222222222222222222","Phone":"15776965623","IdCard":"431003199512051916"}';
 
     // $params = '{"Name":"' . $name . '","BankCard":"' . $bankcard . '","Phone":"' . $phone . '","IdCard":"' . $idcard . '"}'
 
