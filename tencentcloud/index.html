@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>银行卡4要素验证</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+    <!-- Content -->
+    <div class="top-content">
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                        <!-- <a class="logo" href="index.html"></a> -->
+                        <h1><strong>银行卡4要素验证</strong></h1>
+                        <div class="description">
+                            <p>
+                             本文使用的安全凭证为密钥，密钥包括 SecretId 和 SecretKey。每个用户最多可以拥有两对密钥。
+                                SecretId：用于标识 API 调用者身份，可以简单类比为用户名。
+                                SecretKey：用于验证 API 调用者的身份，可以简单类比为密码。
+                                用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证
+                            </p>
+                        </div>
+                        <div class="top-big-link">
+                            <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-register">开始</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL -->
+    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h3 class="modal-title" id="modal-register-label">银行卡验证</h3>
+                    <p>接口是腾讯的,阿里的要钱</p>
+                </div>
+                <div class="modal-body">
+                    <!-- <form role="form" class="registration-form"> -->
+                        <div class="form-group">
+                            <label class="sr-only" for="form-name">姓名</label>
+                            <input type="text" name="form-name" placeholder="姓名" class="form-name form-control" id="form-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-bankcard">银行卡</label>
+                            <input type="text" name="form-bankcard" placeholder="银行卡" class="form-bankcard form-control" id="form-bankcard">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-phone">手机号</label>
+                            <input type="text" name="form-phone" placeholder="手机号" class="form-phone form-control" id="form-phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-idcard">身份证号码</label>
+                           <input type="text" name="form-idcard" placeholder="身份证号码" class="form-idcard form-control" id="form-idcard">
+                        </div>
+                        <button  class="btn" onclick="apitest()">验证</button>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascript -->
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+    function apitest() {
+        var name = $('#name').val();
+        var bankcard = $('#bankcard').val();
+        var phone = $('#phone').val();
+        var idcard = $('#idcard').val();
+        var params = '{"Name":"' + name + '","BankCard":"' + bankcard + '","Phone":"' + phone + '","IdCard":"' + idcard + '"}'
+        console.log(params);
+
+        $.ajax({
+            url: 'http://www.hukang.com/BankCardVerification.php',
+            type: 'POST',
+            data: {
+                params: params
+            },
+            dataType: 'json',
+            success: function(data) {
+                console.log(data.Description);
+            }
+        })
+    }
+    </script>
+</body>
+
+</html>
