@@ -50,7 +50,7 @@ function get_access_token(){
 }
 
 $imgurl = $_GET['imgurl'];
-//保护隐私和安全路径会被fakepath替代(无论服务器还是客户端)
+//保护隐私和安全路径会被fakepath替代(无论服务器还是客户端)。
 //imgurl 为 上传在服务器上图片的路径
 $token = get_access_token();
 $url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token=' . $token;
