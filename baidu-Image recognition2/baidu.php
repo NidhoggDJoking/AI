@@ -51,8 +51,14 @@ function get_access_token(){
     // var_dump($target);
     return $target;
 }
+
+    //上面的方法不用动直接可以用的
+
     // 可以直接用base64编码的图片
+
     // $imgurl = $_GET['imgurl'];
+
+    // $imgurl为服务器图片路径
     $imgurl = $_POST['imgurl'];
     if(!$imgurl){
         return "empty image";
