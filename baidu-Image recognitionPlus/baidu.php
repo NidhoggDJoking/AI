@@ -59,6 +59,7 @@ function get_access_token(){
     // $imgurl = $_GET['imgurl'];
 
     // $imgurl为服务器图片路径
+
     $imgurl = $_POST['imgurl'];
     if(!$imgurl){
         return "empty image";
