@@ -35,8 +35,8 @@ function request_post($url = '', $param = '')
 function get_access_token(){
     $url_t = 'https://aip.baidubce.com/oauth/2.0/token';
 
-    $client_id = "4QY40c0TjToEDHu6sqxWFivb";
-    $client_secret = "cXUUMXQjIevEEzuwVEynBgw0qsPXR8T3";
+    $client_id = "";
+    $client_secret = "";
 
     $body_t = array(
         "grant_type" => "client_credentials",//固定参数
